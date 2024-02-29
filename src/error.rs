@@ -28,7 +28,7 @@ impl CronetError {
     /// Set the [ErrorCode].
     pub fn set_error_code(&self, error_code: ErrorCode) {
         unsafe {
-            Cronet_Error_error_code_set(self.ptr, error_code as u32);
+            Cronet_Error_error_code_set(self.ptr, (error_code as u32).try_into().unwrap());
         }
     }
 

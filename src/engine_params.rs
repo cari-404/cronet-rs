@@ -143,7 +143,7 @@ impl EngineParams {
     /// Enable or disable caching of HTTP data and other information like QUIC.
     pub fn set_http_cache_mode(&self, mode: HttpCacheMode) {
         unsafe {
-            Cronet_EngineParams_http_cache_mode_set(self.ptr, mode as u32);
+            Cronet_EngineParams_http_cache_mode_set(self.ptr, (mode as u32).try_into().unwrap());
         }
     }
 

@@ -250,7 +250,7 @@ impl UrlRequestParams {
     /// It is only safe to enable the `0-RTT` if it is known that the request is idempotent.
     pub fn set_idempotency(&self, idempotency: Idempotency) {
         unsafe {
-            Cronet_UrlRequestParams_idempotency_set(self.ptr, idempotency as u32);
+            Cronet_UrlRequestParams_idempotency_set(self.ptr, (idempotency as u32).try_into().unwrap());
         }
     }
 

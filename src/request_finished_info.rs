@@ -76,7 +76,7 @@ impl RequestFinishedInfo {
 
     pub fn set_finished_reason(&self, reason: RequestFinishedInfoReason) {
         unsafe {
-            Cronet_RequestFinishedInfo_finished_reason_set(self.ptr, reason as u32);
+            Cronet_RequestFinishedInfo_finished_reason_set(self.ptr, (reason as u32).try_into().unwrap());
         }
     }
 }
